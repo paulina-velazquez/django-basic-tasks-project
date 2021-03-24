@@ -5,5 +5,6 @@ from . import views
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("paulina", views.paulina, name="paulina")  # **** Added new path to views folder function paulina
+    path("<str:name>", views.greet, name="greet"),  # Added new path. Takes a string as the "name"
+    path("paulina", views.paulina, name="paulina")
 ]

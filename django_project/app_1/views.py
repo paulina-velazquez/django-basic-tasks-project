@@ -7,6 +7,10 @@ def index(request):
     return HttpResponse("Hello, world!")
 
 
-# ******* Added a new view called Paulina
 def paulina(request):
     return HttpResponse("Hello, Paulina!")
+
+
+# **Added a new function called "greet"
+def greet(request, name):
+    return HttpResponse(f"Hello, {name.capitalize()}!")
