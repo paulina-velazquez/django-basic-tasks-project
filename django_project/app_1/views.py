@@ -12,5 +12,5 @@ def paulina(request):
 
 def greet(request, name):
     return render(request, "app_1/greet.html", {
-        "name": name.capitalize()  # context: Information to provide to the templates.
+        "name": name.capitalize()  
     })
