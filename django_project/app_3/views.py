@@ -4,8 +4,6 @@ from django.shortcuts import render
 from django.urls import reverse
 
 
-
-
 class NewTaskForm(forms.Form):
     task = forms.CharField(label="New Task")
 
@@ -23,7 +21,7 @@ def add(request):
         form = NewTaskForm(request.POST)
         if form.is_valid():
             task = form.cleaned_data["task"]
-            tasks.append(task)
+            request.session["tasks"] += [task]
             return HttpResponseRedirect(reverse("app_3:index"))
         else:
             return render(request, "app_3/add.html", {
@@ -33,5 +31,4 @@ def add(request):
     return render(request, "app_3/add.html", {
         "form": NewTaskForm()
     })
-
 
